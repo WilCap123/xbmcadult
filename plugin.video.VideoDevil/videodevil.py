@@ -874,6 +874,8 @@ class CCurrentList:
                 info_value = '...'
             elif cfg_file.find('youtube') != -1: # youtube
                 info_value = info_value.replace('<b>', '').replace('</b>', '')
+            elif cfg_file.find('xhamster') != -1:
+                info_value = info_value.replace('<span style="background-color:#E9E9E9;">', '').replace('</span>', '')
             elif cfg_file.find('boysfood') != -1: # boysfood
                 info_value = info_value.replace('<font style="color:#c00000;font-weight:bold;">', '').replace('</font>', '')
         elif info_name == 'icon':

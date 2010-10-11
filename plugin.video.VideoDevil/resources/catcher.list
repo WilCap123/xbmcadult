@@ -79,12 +79,6 @@ data=url=%s&sitio=pacoporn
 header=Referer|http://www.videodown.net/?op=18
 quality=standard
 ########################################################
-title=downloadpornhubvideos.com
-target='(/dl_videos/http.+?\.flv).+?'\);">Click Here to Download Video
-url=http://www.downloadpornhubvideos.com/?v=%s
-build=http://www.downloadpornhubvideos.com%s
-quality=standard
-########################################################
 title=downloadshufunivideos.com
 target='/dl_videos/(http.+?\.flv).+?'\);">Click Here to Download Video
 url=http://www.downloadshufunivideos.com/?v=%s
@@ -113,6 +107,11 @@ target=flv_url=(http[^']+[.]flv[^']+)&amp;
 url=%s
 quality=standard
 ########################################################
+title=moviesand.com
+target=so.addVariable[(]"file", "(http[^']+.flv)"[)];
+url=%s
+quality=standard
+########################################################
 title=redtube.com
 target=so[.]addParam[(]"flashvars","[^"]+hashlink=([^"]+)"[)];
 url=%s
@@ -127,6 +126,12 @@ quality=standard
 title=pornrabbit.com
 target=span class="download".+?href="(.+?)"
 url=%s
+quality=standard
+ ########################################################
+title=xhamster.com
+target='file': '(.+?flv)',
+url=%s
+build=http://xhamster.com/flv2/%s
 quality=standard
 #########################################################
 title=hotgoo.com
@@ -182,6 +187,11 @@ quality=standard
 #quality=high
 #target=<a href="([^"]+)" class="link" target="\_blank">
 #quality=fallback
+########################################################
+title=pornhub.com
+target=addVariable\("video_url","(.+?)"
+url=%s
+quality=standard
 ########################################################
 #title=viloader.net
 #target=unescape%28%22(http.+?\.flv)%22%29%3
