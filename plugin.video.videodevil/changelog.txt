@@ -1,3 +1,9 @@
+[B]Version 1.6.4[/B]
+
+- Replaced: os.getcwd() with addon.getAddonInfo('path')
+- Replaced: full setting path with addon.getAddonInfo('profile')
+
+
 [B]Version 1.6.3[/B]
 
 - Updated: pornhub, mofosex, extremetube
