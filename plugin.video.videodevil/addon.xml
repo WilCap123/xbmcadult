@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="plugin.video.VideoDevil"
-  version="1.6.3"
+  version="1.6.4"
   name="VideoDevil"
   provider-name="sfaxman / bootsy">
   <requires>
