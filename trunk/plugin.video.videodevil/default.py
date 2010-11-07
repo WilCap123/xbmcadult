@@ -6,9 +6,10 @@ __plugin__ = 'VideoDevil'
 __author__ = 'sfaxman'
 __svn_url__ = 'http://xbmc-addons.googlecode.com/svn/trunk/plugins/video/VideoDevil/'
 __credits__ = 'bootsy'
-__version__ = '1.6.3'
+__version__ = '1.6.4'
 
-rootDir = os.getcwd()
+addon = xbmcaddon.Addon(id='plugin.video.videomonkey')
+rootDir = addon.getAddonInfo('path')
 if rootDir[-1] == ';':rootDir = rootDir[0:-1]
 
 class Main:
