@@ -8,7 +8,7 @@ __svn_url__ = 'http://xbmc-addons.googlecode.com/svn/trunk/plugins/video/VideoDe
 __credits__ = 'bootsy'
 __version__ = '1.6.4'
 
-addon = xbmcaddon.Addon(id='plugin.video.videomonkey')
+addon = xbmcaddon.Addon(id='plugin.video.videodevil')
 rootDir = addon.getAddonInfo('path')
 if rootDir[-1] == ';':rootDir = rootDir[0:-1]
 
