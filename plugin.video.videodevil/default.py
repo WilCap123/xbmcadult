@@ -1,4 +1,4 @@
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import sys, os, re
 import urllib, urllib2
 
