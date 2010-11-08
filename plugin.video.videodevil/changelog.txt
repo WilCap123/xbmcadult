@@ -1,3 +1,10 @@
+[B]Version 1.6.5[/B]
+
+- Added: StileProject (thx tiben20)
+- Updated: extremetube, boysfood
+- Removed: mofosex
+
+
 [B]Version 1.6.4[/B]
 
 - Replaced: os.getcwd() with addon.getAddonInfo('path')
