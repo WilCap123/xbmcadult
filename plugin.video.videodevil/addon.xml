@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.videodevil" name="VideoDevil" version="1.6.5" provider-name="sfaxman / bootsy">
+<addon
+  id="plugin.video.videodevil"
+  version="1.6.5"
+  name="VideoDevil"
+  provider-name="sfaxman / bootsy">
   <requires>
    <import addon="xbmc.python" version="1.0"/>
   </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
+  <extension 
+    point="xbmc.python.pluginsource"
+    library="default.py">
    <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary>Play videos from different adult streaming sites</summary>
     <description></description>
-    <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-     <platform>all</platform>
+    <platform>all</platform>
   </extension>
 </addon>
