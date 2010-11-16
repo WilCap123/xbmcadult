@@ -1,3 +1,9 @@
+[B]Version 1.6.6[/B]
+
+- Updated: youporn
+- Added: ext_action=decode (catcher)
+
+
 [B]Version 1.6.5[/B]
 
 - Added: StileProject (thx tiben20)
