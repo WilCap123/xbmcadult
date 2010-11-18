@@ -46,8 +46,8 @@
 </addon>
 
 <addon
-  id="plugin.video.VideoDevil"
-  version="1.6.2"
+  id="plugin.video.videodevil"
+  version="1.6.6"
   name="VideoDevil"
   provider-name="sfaxman / bootsy">
   <requires>
@@ -59,7 +59,7 @@
    <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>Play videos of different adult streaming sites</summary>
+    <summary>Play videos from different adult streaming sites</summary>
     <description></description>
     <platform>all</platform>
   </extension>
