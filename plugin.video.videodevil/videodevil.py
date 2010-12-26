@@ -14,8 +14,9 @@ rootDir = addon.getAddonInfo('path')
 if rootDir[-1] == ';':
     rootDir = rootDir[0:-1]
 rootDir = xbmc.translatePath(rootDir)
-cacheDir = os.path.join(addon.getAddonInfo('profile'), 'cache')
-cacheDir = xbmc.translatePath(cacheDir)
+settingsDir = addon.getAddonInfo('profile')
+settingsDir = xbmc.translatePath(settingsDir)
+cacheDir = os.path.join(settingsDir, 'cache')
 resDir = os.path.join(rootDir, 'resources')
 imgDir = os.path.join(resDir, 'images')
 #socket.setdefaulttimeout(20)
@@ -25,15 +26,19 @@ cj = cookielib.LWPCookieJar()
 Request = urllib2.Request
 
 if cj != None:
-    if os.path.isfile(xbmc.translatePath(os.path.join(resDir, 'cookies.lwp'))):
-        cj.load(xbmc.translatePath(os.path.join(resDir, 'cookies.lwp')))
+    if os.path.isfile(xbmc.translatePath(os.path.join(settingsDir, 'cookies.lwp'))):
+        cj.load(xbmc.translatePath(os.path.join(settingsDir, 'cookies.lwp')))
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
     urllib2.install_opener(opener)
 else:
     opener = urllib2.build_opener()
     urllib2.install_opener(opener)
 
-enable_debug = True
+if addon.getSetting('enable_debug') == 'true':
+    enable_debug = True
+    xbmc.output('VideoDevil debug logging enabled')
+else:
+    enable_debug = False
 
 entitydefs = {
     'AElig':    u'\u00C6', # latin capital letter AE = latin capital ligature AE, U+00C6 ISOlat1'
@@ -938,7 +943,7 @@ class CCurrentList:
                 return
             data = handle.read()
             #cj.save(os.path.join(resDir, 'cookies.lwp'), ignore_discard=True)
-            cj.save(os.path.join(resDir, 'cookies.lwp'))
+            cj.save(os.path.join(settingsDir, 'cookies.lwp'))
             if enable_debug:
                 f.write(data)
                 f.close()
@@ -1171,6 +1176,8 @@ class Main:
                 match = urlsearch.group(1).replace('\r\n', '').replace('\n', '').lstrip().rstrip()
                 if source.rule.action.find('unquote') != -1:
                     match = unquote_safe(match)
+                elif source.rule.action.find('decode') != -1:
+		    match = decode(match)
                 if source.rule.build.find('%s') != -1:
                     match = source.rule.build % match
                 if source.ext_rule != None:
@@ -1348,7 +1355,7 @@ class Main:
             player_type = xbmc.PLAYER_CORE_MPLAYER
         elif self.currentlist.player == 'dvdplayer':
             player_type = xbmc.PLAYER_CORE_DVDPLAYER
-
+	
         if flv_file != None and os.path.isfile(flv_file):
             if enable_debug:
                 xbmc.output('Play: ' + str(flv_file))
@@ -1578,12 +1585,14 @@ class Main:
                     if not dialog.yesno(__language__(30061), __language__(30062), __language__(30063), __language__(30064), __language__(30065), __language__(30066)):
                         return
                 if enable_debug:
+                    xbmc.output('Settings directory: ' + str(settingsDir))
                     xbmc.output('Cache directory: ' + str(cacheDir))
                     xbmc.output('Resource directory: ' + str(resDir))
                     xbmc.output('Image directory: ' + str(imgDir))
                 if not os.path.exists(cacheDir):
                     if enable_debug:
                         xbmc.output('Creating cache directory ' + str(cacheDir))
+                    os.mkdir(settingsDir)
                     os.mkdir(cacheDir)
                     if enable_debug:
                         xbmc.output('Cache directory created')
