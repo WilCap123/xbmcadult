@@ -1,3 +1,12 @@
+[B]Version 1.6.7[/B]
+
+- Updated: cookies are saved to the userdata profile path now
+- Added: description in addon.xml
+- Added: disclaimer in addon.xml
+- Added: enable debug logging option in plugin settings
+- Added: action=decode (catcher)
+
+
 [B]Version 1.6.6[/B]
 
 - Updated: youporn
